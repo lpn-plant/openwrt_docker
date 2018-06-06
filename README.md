@@ -1,11 +1,30 @@
 # Docker files
 
-Docker files for building openwrt.
+Docker files for building OpenWRT.
 
-## Usage
+## OpenWRT building
 
-1. Clone this repository
-2. `docker build -t openwrt_dev ./docker`
-3. `docker/scripts/run_docker.sh openwrt`
+Below command will automatically pull recent `lpnplant/openwrt-docker` image.
 
-> assuming openwrt is in `./openwrt` dir
+```
+./docker/scripts/run_docker.sh openwrt
+```
+
+`openwrt` is directory containing OpenWRT source.
+
+## Building image
+
+```
+docker build -t lpnplant/openwrt-docker ./docker
+```
+
+## Pulling images
+
+Ready to use images are available on [LPN Plant Docker Hub](https://hub.docker.com/r/lpnplant/openwrt-docker/).
+To get recent image use:
+
+```
+docker pull lpnplant/opwnwrt-docker
+```
+
+
