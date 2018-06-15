@@ -16,8 +16,9 @@ ssh-add
 
 docker run --rm -it \
     -v $(dirname $SSH_AUTH_SOCK):$(dirname $SSH_AUTH_SOCK) \
+    -v $HOME/.ssh/known_hosts:/home/builder/.ssh/known_hosts \
     -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK \
-    -v "$OPENWRT_DIR":/home/builder/openwrt \
-    -w /home/builder/openwrt \
+    -v "$OPENWRT_DIR":/openwrt \
+    -w /openwrt \
     lpnplant/openwrt-docker \
     bash

@@ -1,8 +1,9 @@
-FROM ubuntu:14.04
+FROM ubuntu:xenial-20180525
 MAINTAINER Kamil Wcisło <kamil.wcislo@el-arkam.pl>
 
 
 RUN apt-get update && apt-get install -y \
+    sudo \
     build-essential \
     bsdmainutils \
     gawk \
@@ -25,12 +26,14 @@ RUN apt-get update && apt-get install -y \
     unzip \
     intltool \
     xsltproc \
+    time \
     && \
     apt-get clean && \
     useradd -m builder && \
     mkdir -p /home/builder/ && \
+    mkdir -p /home/builder/.ssh && \
     echo 'builder ALL=NOPASSWD: ALL' > /etc/sudoers.d/builder
 
 
 USER builder
-WORKDIR /home/builder/
+WORKDIR /openwrt
