@@ -28,11 +28,12 @@ RUN apt-get update && apt-get install -y \
     intltool \
     xsltproc \
     time \
+    cpio \
     && \
     apt-get clean && \
     useradd -m builder && \
     mkdir -p /home/builder/ && \
-    mkdir -p /home/builder/.ssh && \
+    chown builder:builder /home/builder && \
     echo 'builder ALL=NOPASSWD: ALL' > /etc/sudoers.d/builder
 
 
